@@ -1,51 +1,115 @@
 namespace SpriteKind {
     export const object = SpriteKind.create()
 }
+scene.onHitTile(SpriteKind.Player, 5, function (sprite) {
+    for (let index = 0; index < 4; index++) {
+        jared.vy += -100
+    }
+})
 scene.onHitTile(SpriteKind.Player, 2, function (sprite) {
     game.over(false)
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.object, function (sprite, otherSprite) {
-    info.changeScoreBy(1)
-    for (let index = 0; index < 3; index++) {
-        jared.vy += -50
-        trampo.setKind(SpriteKind.object)
-    }
-    trampo.x += Math.randomRange(0, 160)
-})
-let trampo: Sprite = null
 let jared: Sprite = null
 scene.setTileMap(img`
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
-f f 1 f f 1 f f f f 1 f f 1 f f 
+f 1 f f f 1 f f f 1 f f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f f f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f 5 f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f 5 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f 5 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f 5 f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f 5 f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f 5 f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f 5 f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f 5 f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f 5 f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
+f 1 f f f 1 f 5 f f 1 f f f 1 f 
+f 1 f f f 1 f f f f 1 f f f 1 f 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `)
 scene.setTile(2, img`
@@ -102,6 +166,24 @@ scene.setTile(1, img`
 . . . . . d d . . d d . . . . . 
 . . . . . b d . . b b . . . . . 
 `, false)
+scene.setTile(5, img`
+d d d d d d d d d d d d d d d d 
+d f f f f f f f f f f f f f f d 
+d d d d d d d d d d d d d d d d 
+. d . . . . . . . . . . . . d . 
+. d . . . . . . . . . . . . d . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, true)
 jared = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . 4 5 . . . . . . . 
@@ -120,27 +202,26 @@ jared = sprites.create(img`
 . . . . . 5 4 . . . . 4 5 . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
-jared.setPosition(126, 450)
-jared.ay = 100
-trampo = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
+jared.setPosition(126, 430)
+jared.ay = 200
+let trampo = sprites.create(img`
 d d d d d d d d d d d d d d d d 
 d 7 7 7 7 7 7 7 7 7 7 7 7 7 7 d 
 d d d d d d d d d d d d d d d d 
 . d . . . . . . . . . . . . d . 
 . d . . . . . . . . . . . . d . 
 . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
 `, SpriteKind.object)
-trampo.setPosition(Math.randomRange(0, 16), 110)
 animation.runImageAnimation(
 jared,
 [img`
@@ -199,6 +280,7 @@ jared,
 true
 )
 scene.cameraFollowSprite(jared)
-game.onUpdate(function () {
-    jared.x += controller.dx()
-})
+for (let value of scene.getTilesByType(5)) {
+    scene.place(value, trampo)
+}
+controller.moveSprite(jared, 100, 0)
