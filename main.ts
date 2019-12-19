@@ -1,17 +1,30 @@
 namespace SpriteKind {
     export const object = SpriteKind.create()
 }
+// When the sprite Jared hits a wall that was
+// initially a light blue block which is a demon, the
+// game will end resulting the player to lose because
+// they died
 scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
     game.over(false, effects.splatter)
 })
+// When the sprite Jared hits a wall that was
+// initially a yellow block which is a trampoline his
+// y velocity will change by -350 allowing him to jump
+// on it
 scene.onHitTile(SpriteKind.Player, 5, function (sprite) {
-    for (let index = 0; index < 4; index++) {
-        jared.vy += -100
-    }
+    jared.vy += -350
 })
+// When the sprite Jared hits a wall that was
+// initially a red block which is lava, the game will
+// end resulting the player to lose because they died
 scene.onHitTile(SpriteKind.Player, 2, function (sprite) {
     game.over(false, effects.splatter)
 })
+// When the sprite Jared hits a wall that was
+// initially a green block which is a treasure chest,
+// he will win the game because the player has reached
+// the jackpot/end
 scene.onHitTile(SpriteKind.Player, 7, function (sprite) {
     game.over(true, effects.confetti)
 })
@@ -334,9 +347,6 @@ true
 // Allows the camera to follow the sprite Jared
 // throughout the game
 scene.cameraFollowSprite(jared)
-for (let value of scene.getTilesByType(5)) {
-    scene.place(value, trampo)
-}
 // Lets the sprite Jared move with buttons
 // horizontally by 100 but not vertically
 controller.moveSprite(jared, 100, 0)
